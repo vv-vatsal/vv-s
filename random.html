@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <style>
+        .container {
+            margin: auto;
+            /* margin-top: 25%; */
+            border: 5px solid rgb(7, 84, 110);
+            font-size: 30px;
+            padding: 10px;
+            text-align: center;
+            height: 260px;
+            width: 600px;
+            background-color: rgb(255, 119, 214);
+        }
+
+        #UerInp {
+            width: 170px;
+            height: 23px;
+        }
+
+        .vv {
+            background-color: rgb(90, 229, 253);
+        }
+
+        .in {
+            padding-top: 130px;
+        }
+
+        .img1 {
+            height: 200px;
+            padding-left: 60px;
+        }
+        .made{
+            color: blue;
+            margin-top: 30%;
+            margin-left: 90%;
+            margin-right: 0px;
+        }
+        .enter{
+            background: rgba(34, 3, 207, 0.998);
+            color: aliceblue;
+            border-color:#000;
+        }
+    </style>
+</head>
+
+<body class="vv">
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <img src="https://th.bing.com/th/id/R.f1bfa50ba117cb2eeb3e6f2b56ca5e66?rik=G4wZF1zvVDmv1A&riu=http%3a%2f%2fclipartix.com%2fwp-content%2fuploads%2f2016%2f09%2fNumbers-cute-number-three-clipart-image.png&ehk=9bz2K8IRbQFsIVAB9kqt4twQdfc0Se24BryJ3iDBNgk%3d&risl=&pid=ImgRaw&r=0" class="img1">
+                    <div class="in">
+                </td>
+                <td>
+                    <img src="https://th.bing.com/th/id/R.a9a8fd3f2625c37f0c05cc2148edd298?rik=vT8R2reJXHOybA&riu=http%3a%2f%2fclipartsign.com%2fupload%2f2016%2f06%2f25%2fcute-number-six-clipart-image.png&ehk=We6EQdVyzavCCWBYfo4Z6lzvj219FxkP3CjrdGTtUqk%3d&risl=&pid=ImgRaw&r=0" class="img1">
+                    <div class="in">
+                </td>
+                <td>
+                    <img src="https://th.bing.com/th/id/R.25cc39e5f79ae1fd8163654b2de99668?rik=8Pw63tV0IAwh6A&riu=http%3a%2f%2fclipground.com%2fimages%2fnine-clipart-12.jpg&ehk=t5Kz8unR9VfEwhsCNJGNHURzHC36dSnZqhOZrKASX4Q%3d&risl=&pid=ImgRaw&r=0" class="img1">
+                    <div class="in">
+                </td>
+            </tr>
+        </table>
+    </center>
+    <div class="container">
+        <p>Guess a number between 1 to 10</p>
+        <p id="output">Enter a number below</p>
+        <input id="UerInp"><br>
+        <button class="enter" id="enterButton">Enter</button>
+        <button class="enter" id="againbtn">Play again</button>
+    </div>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <img src="https://clipground.com/images/numbers-clipart-png-3.png" class="img1">
+                    <div class="in">
+                </td>
+                <td>
+                    <img src="https://th.bing.com/th/id/R.c3efbec5245f0f9f9894d99dabda4c9d?rik=48V1Dtukp5CH1w&riu=http%3a%2f%2fclipground.com%2fimages%2fnumbers-clipart-png-6.png&ehk=ewWZRaIFPu%2bVGFM4kRualdDoOLuukjetd51iQHgtx44%3d&risl=&pid=ImgRaw&r=0" class="img1">
+                    <div class="in">
+                </td>
+                <td>
+                    <img src="https://clipartstation.com/wp-content/uploads/2017/11/cute-numbers-clipart-4.png" class="img1">
+                    <div class="in">
+                </td>
+            </tr>
+        </table>
+    </center>
+    <p class="made">Made_by_vv</h5>
+    <script>
+        var enterButton = document.getElementById('enterButton')
+        var againbtn = document.getElementById('againbtn')
+        var output = document.getElementById('output')
+
+        // var randomNumber = Math.ceil(Math.random() * 10);
+// Returns a random integer from 0 to 9:
+        var randomNumber = Math.floor(Math.random() * 10);
+        function checkNumber() {
+            var input = document.getElementById('UerInp').value;
+            if (input == randomNumber) {
+                output.innerHTML = "Congratulations, You guessed right" + "," + " it was " + randomNumber;
+                output.style.color = "rgb(21, 192, 9)";
+            }
+            else if (input > randomNumber) {
+                output.innerHTML = "You guessed too high , Enter lower number.";
+                output.style.color = "red";
+            }
+
+            else if (input < randomNumber && input > 1) {
+                output.innerHTML = "You guessed too low , Enter higher number.";
+                output.style.color = "red";
+            }
+            else if (input < 1) {
+                output.innerHTML = "Enter number between 1 and 10";
+                output.style.color = "red";
+            }
+            else if (isNaN(input)) {
+                output.innerHTML = "This is not a number";
+                output.style.color = "red";
+            }
+            else {
+                output.innerHTML = "It has to be between 1 and 10";
+                output.style.color = "red";
+            }
+        }
+        enterButton.addEventListener('click', checkNumber)
+        againbtn.addEventListener('click', function () {
+            location.reload();
+        })
+    </script>
+</body>
+
+</html>
